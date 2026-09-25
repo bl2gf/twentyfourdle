@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Twentyfourdle — Your daily dose of 24</title>
+<meta name="description" content="Four numbers. One daily challenge. Make 24, race your friends, and find the simplest solution.">
+<link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script>
+</head>
+<body>
+<header class="masthead"><a href="/" class="brand" aria-label="Twentyfourdle home"><span class="brand-icon">24<span>·</span></span><span>twentyfourdle</span></a><div class="header-actions"><button class="plain" id="help-button">How to play <span class="circle">?</span></button><button class="avatar" id="profile-button" aria-label="Your player profile">?</button></div></header>
+<main>
+<div class="daily-meta"><span class="eyebrow">THE DAILY CHALLENGE</span><span id="day-label">Loading today’s puzzle…</span></div>
+<div class="layout">
+<section class="game-panel" aria-labelledby="game-heading">
+<div class="game-heading"><div><h1 id="game-heading">Make it <span>24.</span></h1><p>Four numbers. Your way to twenty-four.</p></div><div class="timer-block"><span class="eyebrow" id="timer-label">YOUR TIME</span><span id="timer">00:00.0</span></div></div>
+<div class="number-cards" id="cards" aria-label="Today’s numbers"><div class="number-card hidden-card">?</div><div class="number-card hidden-card">?</div><div class="number-card hidden-card">?</div><div class="number-card hidden-card">?</div></div>
+<div id="start-area" class="start-area"><p>Use every number once with <strong>+ − × ÷</strong>.<br>The clock starts when you reveal your numbers.</p><button class="primary start-button" id="start-button" disabled>Loading… <span>↗</span></button><p class="micro">Same puzzle for everyone. A fresh start every day.</p></div>
+<form id="solution-form" class="hidden" autocomplete="off"><label class="eyebrow" for="expression">YOUR EXPRESSION</label><div class="expression-wrap"><input id="expression" aria-describedby="expression-help" placeholder="Build your solution…" maxlength="120" spellcheck="false" autocapitalize="off"><span>= 24</span></div><div class="operators" aria-label="Add an operator"><button type="button" data-token="+">+</button><button type="button" data-token="-">−</button><button type="button" data-token="*">×</button><button type="button" data-token="/">÷</button><button type="button" data-token="(">(</button><button type="button" data-token=")">)</button><button type="button" id="backspace" aria-label="Delete last character">⌫</button><button type="button" id="clear" class="clear">Clear</button></div><p class="micro" id="expression-help">Tap the tiles or type. Parentheses are welcome.</p><button class="primary submit-button" type="submit" id="submit-button">Check my solution <span>↵</span></button></form>
+<p id="game-message" class="message" role="status" aria-live="polite"></p>
+<div id="result" class="hidden"></div>
+<div class="game-foot"><span>ONE PUZZLE. MANY POSSIBILITIES.</span><span>Next puzzle in <strong id="reset-countdown">—</strong></span></div>
+</section>
+<aside class="friends-panel" aria-labelledby="friends-heading"><div class="section-top"><div><span class="eyebrow">BETTER TOGETHER</span><h2 id="friends-heading">The friend circle<span>.</span></h2></div><span class="people-icon" aria-hidden="true">↗</span></div><p class="muted">A little friendly competition never hurt.</p><div id="club-picker" class="hidden"><label for="club-select" class="sr-only">Friend group</label><select id="club-select"></select><button class="plain" id="invite-button">Copy invite ↗</button></div><div class="rank-tabs" role="tablist" aria-label="Leaderboard ranking"><button id="speed-tab" role="tab" aria-selected="true" aria-controls="leaderboard" tabindex="0" data-ranking="speed">Fastest</button><button id="simple-tab" role="tab" aria-selected="false" aria-controls="leaderboard" tabindex="-1" data-ranking="simple">Simplest</button></div><div id="leaderboard" role="tabpanel" aria-labelledby="speed-tab" tabindex="0"><div class="empty-board"><span class="empty-symbol">01 —</span><h3>Your circle starts with you.</h3><p>Create a group, invite your friends,<br>and see who gets to 24 first.</p></div></div><div class="group-actions"><button id="create-button" class="secondary">Create a group <span>+</span></button><button id="join-button" class="plain">Have an invite code? Join a group</button></div><p id="board-message" class="micro" role="status"></p><p class="spoiler-note" id="spoiler-note">Solutions unlock after you solve today’s puzzle.</p></aside>
+</div>
+<section class="rules-strip" aria-label="The rules at a glance"><div><span class="rule-number">01</span><div><h3>Every number counts.</h3><p>Use all four numbers exactly once.</p></div></div><div><span class="rule-number">02</span><div><h3>Speed or simplicity?</h3><p>Race the clock. Then refine your solution.</p></div></div><div><span class="rule-number">03</span><div><h3>Make it a daily thing.</h3><p>New numbers at midnight UTC.</p></div></div></section>
+<footer><span>twentyfourdle <span class="footer-dot">◆</span> A small daily brain stretch.</span><button class="plain" id="scoring-button">How simplicity is scored ↗</button></footer>
+</main>
+<dialog id="modal"><button id="close-modal" class="modal-close" aria-label="Close dialog">×</button><div id="modal-content"></div></dialog>
+<div id="toast" class="toast hidden" role="status"></div>
+</body></html>
